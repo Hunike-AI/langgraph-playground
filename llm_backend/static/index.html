@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LangGraph-Playground</title>
+    <script type="module" crossorigin src="/assets/index-B8HDFaAr.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-CXuefPnG.js">
+    <link rel="modulepreload" crossorigin href="/assets/utils-Dq7h7Pqt.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-CVPqcGkz.css">
+    <style>
+      .app-container[data-v-8a6a0e69] { background: linear-gradient(135deg,#667eea,#764ba2); }
+      .app-container[data-v-8a6a0e69]:before {
+        background-image: radial-gradient(circle at 20% 80%, rgba(255,107,157,.1) 0%, transparent 50%),
+                          radial-gradient(circle at 80% 20%, rgba(120,119,198,.1) 0%, transparent 50%),
+                          radial-gradient(circle at 40% 40%, rgba(255,255,255,.05) 0%, transparent 50%) !important;
+        background-size: auto, auto, auto !important;
+        background-position: 20% 80%, 80% 20%, 40% 40% !important;
+        background-repeat: no-repeat, no-repeat, no-repeat !important;
+      }
+      .app-container[data-v-8a6a0e69]:after,
+      .welcome-message[data-v-8a6a0e69]:before,
+      .sidebar-header[data-v-8a6a0e69]:before,
+      .login-container[data-v-39989967] { background-image: none !important; }
+      img[src^="/assets/"], audio[src^="/assets/"] { display: none !important; }
+    </style>
+    <script>
+      (function() {
+          
+          document.querySelectorAll('img[src^="/assets/"]').forEach(stripAssetSrc);
+          document.querySelectorAll('audio[src^="/assets/"]').forEach(stripAssetSrc);
+          const mo = new MutationObserver(function(mutations) {
+            for (const m of mutations) {
+              m.addedNodes && m.addedNodes.forEach(function(n) {
+                if (n.nodeType === 1) {
+                  stripAssetSrc(n);
+                  n.querySelectorAll && n.querySelectorAll('img[src^="/assets/"],audio[src^="/assets/"]').forEach(stripAssetSrc);
+                }
+              });
+              if (m.type === 'attributes' && m.attributeName === 'src') {
+                const n = m.target;
+                stripAssetSrc(n);
+              }
+            }
+          });
+          mo.observe(document.documentElement || document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['src'] });
+          const OriginalAudio = window.Audio;
+          window.Audio = function(src) {
+            const a = new OriginalAudio();
+            if (src && typeof src === 'string' && src.startsWith('/assets/')) {
+              // ignore asset audio
+            } else if (src) {
+              a.src = src;
+            }
+            return a;
+          };
+          window.Audio.prototype = OriginalAudio.prototype;
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html> 
